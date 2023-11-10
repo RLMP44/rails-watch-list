@@ -1,8 +1,7 @@
 .card-category {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('banner_gnome.png');
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +9,48 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  box-shadow: 4 4 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn {
+  background: #3975ac;
+  color: #f5f0ef;
+  border-color: #f5f0ef;
+  border-radius: 20px;
+  border-width: 2px;
+
+  &:hover {
+    background: #f5f0ef;
+    color: #3975ac;
+    border-color: #3975ac;
+    transition: .5s;
+  }
+}
+
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('colorful_stage_lighting.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.container {
+  background-color: #f4f7fa;
 }
 
 .width-200 {
@@ -23,6 +62,16 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.card-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
