@@ -12,7 +12,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= bookmark.movie.title %></h5>
         <p class="card-text"><%= bookmark.movie.overview %></p>
-        <%= link_to 'Delete', list_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger"%>
+        <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger"%>
       </div>
     </div>
     <h3></h3>
