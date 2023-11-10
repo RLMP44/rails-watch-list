@@ -1,37 +1,35 @@
+<div class="card-category">
+  Movie Lists
+</div>
+
+<div class="list-area-container">
 <h1>My lists</h1>
 
 <div class="lists_container">
   <% if @lists.any? %>
-    <ul>
+    <div class="cards">
+
       <% @lists.each do |list| %>
-        <% if list.name.downcase == "comedy"%>
-          <% url = "comedy_gnome_edit.png" %>
-        <% elsif list.name.downcase == "horror" %>
-          <% url = "horror_gnome3_edit.png" %>
-        <% elsif list.name.downcase == "romcom" %>
-          <% url = "romance_gnomes2_edit.png" %>
-        <% elsif list.name.downcase == "fantasy" %>
-          <% url = "adventure_gnome_edit.png" %>
-        <% elsif list.name.downcase == "action" %>
-          <% url = "adventure_gnome2_edit.png" %>
-        <% elsif list.name.downcase == "anime" %>
-          <% url = "anime_gnome_edit.png" %>
-        <% elsif list.name.downcase == "favorites" %>
-          <% url = "di-gnome_edit.png" %>
-        <% else %>
-          <% url = "gnome_pointing_edit.png" %>
-        <% end %>
-        <div class="card bg-dark text-white">
-          <%= image_tag url, alt: "Le Wagon", width: 200 %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+          <%= list.name %>
+        </div>
+
+      <% if false %>
+        <div class="card bg-dark text-white width-200">
+          <%= cl_image_tag list.photo.key, alt: "Le Wagon", width: 200 %>
           <div class="card-img-overlay">
             <h5 class="card-title"><%= link_to list.name, list_path(list[:id]), class: "btn btn-outline-info"%></h5>
           </div>
         </div>
       <% end %>
-    </ul>
+
+      <% end %>
+    </div>
+
   <% else %>
     <p>You don't have any lists yet!
   <% end %>
 </div>
 
 <%= link_to 'Add a list', new_list_path, class: "btn btn-primary" %>
+</div>
