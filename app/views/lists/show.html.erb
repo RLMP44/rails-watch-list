@@ -11,37 +11,37 @@
           <%= link_to 'Home', lists_path, class: "nav-link active"%>
           <a class="nav-link" href="#">Features</a>
           <a class="nav-link" href="#">Pricing</a>
-          <a class="nav-link disabled">Disabled</a>
         </div>
       </div>
     </div>
   </nav>
   <%# NAVBAR END %>
 
-  <div class="container">
+  <div class="container show-container">
     <h1><%= @list.name %></h1>
 
     <% if @list.movies.any? %>
       <% @list.bookmarks.each do |bookmark| %>
-
-        <div class="card-product">
-          <img src=<%= bookmark.movie.poster_url %> />
-          <div class="card-product-infos">
-            <div class="card-product-info-text">
-              <h2><%= bookmark.movie.title %></h2>
-              <p><%= bookmark.movie.overview %></p>
+        <div class="card-product-with-comments">
+          <div class="card-product">
+            <img src=<%= bookmark.movie.poster_url %> />
+            <div class="card-product-infos">
+              <div class="card-product-info-text">
+                <div class="card-product-title-line">
+                  <h2><%= bookmark.movie.title %></h2>
+                  <p><%= bookmark.movie.rating %>/10</p>
+                </div>
+                <p><%= bookmark.movie.overview %></p>
+              </div>
+              <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete"%>
             </div>
-            <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete"%>
+          </div>
+
+          <div class="card-product-comments-section">
+            <h5>Comments</h5>
+            <p class="verticalLine"><em>—"<%= bookmark.comment %>"</em></p>
           </div>
         </div>
-
-
-
-        <h3></h3>
-        <p><%= bookmark.movie.rating %>/10</p>
-        <p></p>
-        <h5>Comments</h5>
-        <p><%= bookmark.comment %></p>
       <% end %>
     <% else %>
       <p>You don't have any movies bookmarked yet!</p>
