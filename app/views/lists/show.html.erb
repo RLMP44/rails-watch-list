@@ -1,26 +1,53 @@
-<h1><%= @list.name %></h1>
-
-<%= link_to 'Back to lists', lists_path, class: "btn btn-primary"%>
-<%= link_to 'Add a new bookmark', new_list_bookmark_path(@list), class: "btn btn-primary" %>
-
-
-<% if @list.movies.any? %>
-  <% @list.bookmarks.each do |bookmark| %>
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src=<%= bookmark.movie.poster_url %> alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= bookmark.movie.title %></h5>
-        <p class="card-text"><%= bookmark.movie.overview %></p>
-        <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger"%>
+<div class="page position-relative">
+  <%# NAVBAR START %>
+  <nav class="navbar sticky-top navbar-expand-lg">
+    <div class="container-fluid">
+      <%= link_to @list.name + " Top", list_path, class: "navbar-brand"%>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <%= link_to 'Home', lists_path, class: "nav-link active"%>
+          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link disabled">Disabled</a>
+        </div>
       </div>
     </div>
-    <h3></h3>
-    <p><%= bookmark.movie.rating %>/10</p>
-    <p></p>
-    <h5>Comments</h5>
-    <p><%= bookmark.comment %></p>
-  <% end %>
-<% else %>
-  <p>You don't have any movies bookmarked yet!</p>
-<% end %>
+  </nav>
+  <%# NAVBAR END %>
+
+  <div class="container">
+    <h1><%= @list.name %></h1>
+
+    <% if @list.movies.any? %>
+      <% @list.bookmarks.each do |bookmark| %>
+
+        <div class="card-product">
+          <img src=<%= bookmark.movie.poster_url %> />
+          <div class="card-product-infos">
+            <div class="card-product-info-text">
+              <h2><%= bookmark.movie.title %></h2>
+              <p><%= bookmark.movie.overview %></p>
+            </div>
+            <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete"%>
+          </div>
+        </div>
+
+
+
+        <h3></h3>
+        <p><%= bookmark.movie.rating %>/10</p>
+        <p></p>
+        <h5>Comments</h5>
+        <p><%= bookmark.comment %></p>
+      <% end %>
+    <% else %>
+      <p>You don't have any movies bookmarked yet!</p>
+    <% end %>
+  </div>
+
+  <%# FLOATING BUTTON %>
+  <%= link_to '+', new_list_bookmark_path(@list), class: "btn floating" %>
+</div>

@@ -18,37 +18,6 @@
   }
 }
 
-.btn {
-  background: #3975ac;
-  color: #f5f0ef;
-  border-color: #f5f0ef;
-  border-radius: 20px;
-  border-width: 2px;
-
-  &:hover {
-    background: #f5f0ef;
-    color: #3975ac;
-    border-color: #3975ac;
-    transition: .5s;
-  }
-}
-
-.banner {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('colorful_stage_lighting.png');
-  background-size: cover;
-  background-position: center;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
 .container {
   background-color: #f4f7fa;
 }
@@ -72,38 +41,43 @@
 }
 
 
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
+// SHOW.HTML.ERB MOVIE CARD START
+.card-product {
+  overflow: hidden;
+  height: 300px;
+  width: 850px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 5px;
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
+.card-product img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.card-product h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
+.card-product p {
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
+.card-product .card-product-infos {
+  padding: 16px;
 }
+
+.card-product-info-text {
+  position: relative;
+}
+// SHOW.HTML.ERB MOVIE CARD END

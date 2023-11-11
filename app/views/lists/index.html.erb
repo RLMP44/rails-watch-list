@@ -2,40 +2,60 @@
   Movie Lists
 </div>
 
-<div class="container">
-
-  <div class="list-area-container">
-    <div class="list-display d-flex justify-content-between">
-      <h1 class="m-3">My lists</h1>
-      <div class="add_button">
-        <%= link_to 'Add a list', new_list_path, class: "btn m-3" %>
+<%# NAVBAR START %>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to 'Movie Lists', lists_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to 'Home', lists_path, class: "nav-link active"%>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled">Disabled</a>
       </div>
     </div>
+  </div>
+</nav>
+<%# NAVBAR END %>
 
-      <div class="lists_container">
-        <% if @lists.any? %>
-          <div class="cards">
+<div class="container">
 
-            <% @lists.each do |list| %>
-              <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
-                <%= list.name %>
-                <%= link_to "", list_path(list[:id]), class: "card-link"%>
-              </div>
 
-            <% if false %>
-              <div class="card bg-dark text-white width-200">
-                <%= cl_image_tag list.photo.key, alt: "Le Wagon", width: 200 %>
-                <div class="card-img-overlay">
-                  <h5 class="card-title"><%= link_to list.name, list_path(list[:id]), class: "btn btn-outline-info"%></h5>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-
-      <% else %>
-        <p>You don't have any lists yet!
-      <% end %>
+  <div class="list-display d-flex justify-content-between">
+    <h1 class="m-3">Rachael's lists</h1>
+    <div class="add_button">
+      <%= link_to 'Add a list', new_list_path, class: "btn m-3" %>
     </div>
   </div>
+
+    <div class="lists_container">
+      <% if @lists.any? %>
+        <div class="cards">
+
+          <%# MAKES INDIVIDUAL CARDS %>
+          <% @lists.each do |list| %>
+            <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+              <%= list.name %>
+              <%= link_to "", list_path(list[:id]), class: "card-link"%>
+            </div>
+
+          <% if false %>
+            <div class="card bg-dark text-white width-200">
+              <%= cl_image_tag list.photo.key, alt: "Le Wagon", width: 200 %>
+              <div class="card-img-overlay">
+                <h5 class="card-title"><%= link_to list.name, list_path(list[:id]), class: "btn btn-outline-info"%></h5>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    <% else %>
+      <p>You don't have any lists yet!
+    <% end %>
+  </div>
+
 </div>

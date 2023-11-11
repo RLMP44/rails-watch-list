@@ -1,0 +1,31 @@
+.btn {
+  background: #3975ac;
+  color: #f4f7fa;
+  border-color: #f4f7fa;
+  border-radius: 20px;
+  border-width: 2px;
+
+  &:hover {
+    background: #f4f7fa;
+    color: #3975ac;
+    border-color: #3975ac;
+    transition: .5s;
+  }
+}
+
+.floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 10px 28px;
+  box-shadow: 2px 4px 7px grey;
+  border-color: #3975ac;
+}
+
+.delete {
+  position: absolute;
+
+}
