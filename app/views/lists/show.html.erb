@@ -9,8 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <%= link_to 'Home', lists_path, class: "nav-link active"%>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Pricing</a>
+          <%# <a class="nav-link" href="#">Features</a> %>
         </div>
       </div>
     </div>
@@ -21,6 +20,7 @@
     <h1><%= @list.name %></h1>
 
     <% if @list.movies.any? %>
+      <%# CREATE MOVIE CARDS START %>
       <% @list.bookmarks.each do |bookmark| %>
         <div class="card-product-with-comments">
           <div class="card-product">
@@ -33,7 +33,7 @@
                 </div>
                 <p><%= bookmark.movie.overview %></p>
               </div>
-              <%= link_to 'Delete', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete"%>
+                <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
             </div>
           </div>
 
@@ -43,6 +43,7 @@
           </div>
         </div>
       <% end %>
+      <%# CREATE MOVIE CARDS END %>
     <% else %>
       <p>You don't have any movies bookmarked yet!</p>
     <% end %>
