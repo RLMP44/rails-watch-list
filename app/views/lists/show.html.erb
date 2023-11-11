@@ -23,17 +23,21 @@
       <%# CREATE MOVIE CARDS START %>
       <% @list.bookmarks.each do |bookmark| %>
         <div class="card-product-with-comments">
-          <div class="card-product">
-            <img src=<%= bookmark.movie.poster_url %> />
-            <div class="card-product-infos">
-              <div class="card-product-info-text">
-                <div class="card-product-title-line">
-                  <h2><%= bookmark.movie.title %></h2>
-                  <p class="rating">★ <%= bookmark.movie.rating %></p>
+          <div class="card-product row">
+            <div class="col-sm-2">
+              <img src=<%= bookmark.movie.poster_url %> />
+            </div>
+            <div class="col-sm-10">
+              <div class="card-product-infos">
+                <div class="card-product-info-text">
+                  <div class="card-product-title-line">
+                    <h2><%= bookmark.movie.title %></h2>
+                    <p class="rating">★ <%= bookmark.movie.rating %></p>
+                  </div>
+                  <p><%= bookmark.movie.overview %></p>
                 </div>
-                <p><%= bookmark.movie.overview %></p>
+                  <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
               </div>
-                <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
             </div>
           </div>
 
