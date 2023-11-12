@@ -2,13 +2,13 @@
   <%# NAVBAR START %>
   <nav class="navbar sticky-top navbar-expand-lg">
     <div class="container-fluid">
-      <%= link_to @list.name + " Top", list_path, class: "navbar-brand"%>
+      <%= link_to '', lists_path, class: "navbar-brand fa-solid fa-clapperboard fa-2xl" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <%= link_to 'Home', lists_path, class: "nav-link active"%>
+          <%= link_to @list.name + " Top", list_path, class: "nav-link active"%>
           <%# <a class="nav-link" href="#">Features</a> %>
         </div>
       </div>
@@ -17,7 +17,9 @@
   <%# NAVBAR END %>
 
   <div class="container show-container">
-    <h1><%= @list.name %></h1>
+    <div class="show-container-category-title">
+      <h1><%= @list.name %></h1>
+    </div>
 
     <% if @list.movies.any? %>
       <%# CREATE MOVIE CARDS START %>
@@ -49,7 +51,7 @@
       <% end %>
       <%# CREATE MOVIE CARDS END %>
     <% else %>
-      <p>You don't have any movies bookmarked yet!</p>
+      <p>No movies bookmarked yet!</p>
     <% end %>
   </div>
 

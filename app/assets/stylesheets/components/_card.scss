@@ -59,7 +59,7 @@
 }
 
 .card-product-comments-section {
-  margin: 5px 10px;
+  margin: 16px 10px 40px 10px;
 }
 
 .card-product img {
@@ -68,10 +68,11 @@
   max-width: 200px;
   min-width: 100px;
   object-fit: cover;
+  padding-right: 24px;
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 16px 16px 16px 0px;
 }
 
 .card-product-info-text {
