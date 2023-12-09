@@ -8,4 +8,4 @@ Users can add a list and upload a photo of their choosing.
 
 ![Movie-list-list-index](https://github.com/RLMP44/rails-watch-list/assets/109778611/c5682d3c-0579-49f5-b1d9-2b492c23c301)
 
-Within each individual list, users can choose a movie and add a comment for future reference.
+Within each individual list, users can choose a movie and add a comment for future reference, or delete an entry.
