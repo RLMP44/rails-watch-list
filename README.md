@@ -1,24 +1,11 @@
-# README
+# Watch List
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app lets users make any type of list under the sun, be it a movie genre, a must-watch-list, or a collection of their favorites.
 
-Things you may want to cover:
+![Movie_list_top](https://github.com/RLMP44/rails-watch-list/assets/109778611/24d399bc-5ddf-4b57-aaff-6e0134ef6793)
 
-* Ruby version
+Users can add a list and upload a photo of their choosing.
 
-* System dependencies
+![Movie-list-list-index](https://github.com/RLMP44/rails-watch-list/assets/109778611/c5682d3c-0579-49f5-b1d9-2b492c23c301)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Within each individual list, users can choose a movie and add a comment for future reference.
