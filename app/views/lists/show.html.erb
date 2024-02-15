@@ -9,18 +9,15 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <%= link_to @list.name + " Top", list_path, class: "nav-link active"%>
-          <%# <a class="nav-link" href="#">Features</a> %>
         </div>
       </div>
     </div>
   </nav>
   <%# NAVBAR END %>
-
   <div class="container show-container">
     <div class="show-container-category-title">
       <h1><%= @list.name %></h1>
     </div>
-
     <% if @list.movies.any? %>
       <%# CREATE MOVIE CARDS START %>
       <% @list.bookmarks.each do |bookmark| %>
@@ -38,11 +35,10 @@
                   </div>
                   <p><%= bookmark.movie.overview %></p>
                 </div>
-                  <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
+                <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
               </div>
             </div>
           </div>
-
           <div class="card-product-comments-section">
             <h5>Comments</h5>
             <p class="verticalLine"><em>—"<%= bookmark.comment %>"</em></p>
@@ -54,7 +50,6 @@
       <p>No movies bookmarked yet!</p>
     <% end %>
   </div>
-
   <%# FLOATING BUTTON %>
   <%= link_to '+', new_list_bookmark_path(@list), class: "btn floating" %>
 </div>

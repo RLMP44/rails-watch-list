@@ -8,16 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to 'Home', lists_path, class: "nav-link active"%>
-        <%# <a class="nav-link" href="#">Features</a> %>
       </div>
     </div>
   </div>
 </nav>
 <%# NAVBAR END %>
-
 <div class="container form">
   <h1>Add a new list</h1>
-
   <%= simple_form_for @list do |f| %>
     <%= f.input :name %>
     <%= f.input :photo, as: :file %>

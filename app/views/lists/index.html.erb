@@ -9,21 +9,17 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <%= link_to 'Movie Lists', lists_path, class: "nav-link active" %>
-          <%# <a class="nav-link" href="#">Features</a> %>
         </div>
       </div>
     </div>
   </nav>
   <%# NAVBAR END %>
-
   <%# BANNER START %>
   <div class="banner">
     <h1>Movie Lists</h1>
   </div>
   <%# BANNER END %>
-
   <div class="container">
-
     <%# TITLE AND ADD LIST BUTTON START %>
     <div class="list-display d-flex justify-content-between">
       <h2 class="m-3">Rachael's lists</h2>
@@ -32,17 +28,15 @@
       </div>
     </div>
     <%# TITLE AND ADD LIST BUTTON END %>
-
-      <div class="lists_container">
-        <% if @lists.any? %>
-          <div class="cards">
-
-            <%# MAKES INDIVIDUAL CARDS %>
-            <% @lists.each do |list| %>
-              <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
-                <%= list.name %>
-                <%= link_to "", list_path(list[:id]), class: "card-link"%>
-              </div>
+    <div class="lists_container">
+      <% if @lists.any? %>
+        <div class="cards">
+          <%# MAKES INDIVIDUAL CARDS %>
+          <% @lists.each do |list| %>
+            <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+              <%= list.name %>
+              <%= link_to "", list_path(list[:id]), class: "card-link"%>
+            </div>
             <%# CARD FAILURE CATCHALL START %>
             <% if false %>
               <div class="card bg-dark text-white width-200">
@@ -55,11 +49,9 @@
             <%# CARD FAILURE CATCHALL END %>
           <% end %>
         </div>
-
       <% else %>
         <p>You don't have any lists yet!
-      <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
-</div>
