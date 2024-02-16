@@ -16,52 +16,54 @@
   <%# NAVBAR END %>
   <div class="main">
     <div class="container show-container">
-      <div class="show-container-category-title">
-        <h1><%= @list.name %></h1>
-      </div>
-      <% if @list.movies.any? %>
-        <%# CREATE MOVIE CARDS START %>
-        <% @list.bookmarks.each do |bookmark| %>
-          <div class="card-product-with-comments">
-            <div class="card-product row">
-              <div class="col-sm-2">
-                <img src=<%= bookmark.movie.poster_url %> />
-              </div>
-              <div class="col-sm-10">
-                <div class="card-product-infos">
-                  <div class="card-product-info-text">
-                    <div class="card-product-title-line">
-                      <h2><%= bookmark.movie.title %></h2>
-                      <p class="rating">★ <%= bookmark.movie.rating %></p>
+      <div style="width: fit-content">
+        <div class="show-container-category-title">
+          <h1><%= @list.name %></h1>
+        </div>
+        <% if @list.movies.any? %>
+          <%# CREATE MOVIE CARDS START %>
+          <% @list.bookmarks.each do |bookmark| %>
+            <div class="card-product-with-comments">
+              <div class="card-product row">
+                <div class="col-sm-2">
+                  <img src=<%= bookmark.movie.poster_url %> />
+                </div>
+                <div class="col-sm-10">
+                  <div class="card-product-infos">
+                    <div class="card-product-info-text">
+                      <div class="card-product-title-line">
+                        <h2><%= bookmark.movie.title %></h2>
+                        <p class="rating">★ <%= bookmark.movie.rating %></p>
+                      </div>
+                      <p><%= bookmark.movie.overview %></p>
                     </div>
-                    <p><%= bookmark.movie.overview %></p>
+                    <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
                   </div>
-                  <%= link_to '', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn delete fa-solid fa-trash"%>
                 </div>
               </div>
+              <div class="card-product-comments-section">
+                <h5>Comments</h5>
+                <p class="verticalLine"><em>—"<%= bookmark.comment %>"</em></p>
+              </div>
             </div>
-            <div class="card-product-comments-section">
-              <h5>Comments</h5>
-              <p class="verticalLine"><em>—"<%= bookmark.comment %>"</em></p>
-            </div>
-          </div>
+          <% end %>
+          <%# CREATE MOVIE CARDS END %>
+        <% else %>
+          <p>No movies bookmarked yet!</p>
         <% end %>
-        <%# CREATE MOVIE CARDS END %>
-      <% else %>
-        <p>No movies bookmarked yet!</p>
-      <% end %>
+      </div>
+      <%# ADD FORM %>
+      <div class="container form">
+        <h1>Add bookmark</h1>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.association :movie %>
+          <%= f.input :comment %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
     </div>
-    <%# ADD FORM %>
-    <div class="container form">
-      <h1>Add a new bookmark</h1>
-      <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.association :movie %>
-        <%= f.input :comment %>
-        <%= f.button :submit %>
-      <% end %>
-    </div>
+    <%# FORM END %>
   </div>
-  <%# FORM END %>
   <%# FLOATING BUTTON %>
   <%= link_to '+', new_list_bookmark_path(@list), class: "btn floating" %>
 </div>

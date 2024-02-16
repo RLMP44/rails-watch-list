@@ -8,10 +8,9 @@
   background-color: #3e80ad;
   color: black;
   border-radius: 5px;
-  box-shadow: 2px 2px 15px darkgrey;
   padding: 8px;
-  margin-top: 12px;
-  width: 300px;
+  margin: 12px;
+  max-width: 300px;
 }
 
 // container for entire page
@@ -22,8 +21,17 @@
 // SHOW.HTML.ERB MOVIE CARD
 .show-container {
   width: auto;
-  display: center;
   padding-bottom: 10px;
   padding-top: 10px;
   color: white;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
