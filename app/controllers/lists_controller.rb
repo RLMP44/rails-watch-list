@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :set_list
 
   def index
+    @list = List.new
   end
 
   def show
