@@ -1,26 +1,27 @@
 <%# NAVBAR START %>
+<%
+=begin
 <nav class="navbar sticky-top navbar-expand-lg">
   <div class="container-fluid">
     <%= link_to "Movie Lists", list_path(@list), class: "navbar-brand"%>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <%= link_to 'Home', lists_path, class: "nav-link active"%>
-        <%# <a class="nav-link" href="#">Features</a> %>
-      </div>
-    </div>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="navbar-nav">
+    <%= link_to 'Home', lists_path, class: "nav-link active"%>
+    <%# <a class="nav-link" href="#">Features</a> %>
   </div>
+</div>
+</div>
 </nav>
 <%# NAVBAR END %>
-
 <div class="container form">
   <h1>Add a new bookmark</h1>
-
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.association :movie %>
     <%= f.input :comment %>
     <%= f.button :submit %>
   <% end %>
 </div>
+=end %>

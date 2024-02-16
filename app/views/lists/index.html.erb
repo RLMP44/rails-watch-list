@@ -14,6 +14,30 @@
     </div>
   </nav>
   <%# NAVBAR END %>
+  <%# MODAL START %>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add a list
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new list</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for @list do |f| %>
+            <%= f.input :name %>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# MODAL END %>
   <%# BANNER START %>
   <div class="banner">
     <h1>Movie Lists</h1>
@@ -51,14 +75,6 @@
           <p>You don't have any lists yet!
           <% end %>
         </div>
-      </div>
-      <div class="container form">
-        <h1>Add a new list</h1>
-        <%= simple_form_for @list do |f| %>
-          <%= f.input :name %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit %>
-        <% end %>
       </div>
     </div>
   </div>

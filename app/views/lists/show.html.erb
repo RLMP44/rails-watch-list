@@ -8,7 +8,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <%= link_to @list.name + " Top", list_path, class: "nav-link active"%>
+          <%= link_to @list.name + " Top", list_path(@list), class: "nav-link active"%>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
       </div>
       <%# ADD FORM %>
       <div class="container form">
-        <h1>Add bookmark</h1>
+        <h1>Add a movie</h1>
         <%= simple_form_for [@list, @bookmark] do |f| %>
           <%= f.association :movie %>
           <%= f.input :comment %>
