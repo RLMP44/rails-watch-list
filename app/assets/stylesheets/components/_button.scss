@@ -1,6 +1,6 @@
 // ALL BUTTONS
 .btn {
-  background: #3e80ad;
+  background: $blue;
   color: #030a14;
   border-color: #030a14;
   border-radius: 20px;
@@ -8,8 +8,8 @@
 
   &:hover {
     background: #030a14;
-    color: #3e80ad;
-    border-color: #3e80ad;
+    color: $blue;
+    border-color: $blue;
     transition: .5s;
   }
 }
@@ -24,8 +24,8 @@
 //   font-weight: bolder;
 //   padding: 10px 28px;
 //   border-width: 2px;
-//   box-shadow: 1px 1px 7px #3e80ad;
-//   border-color: #3e80ad;
+//   box-shadow: 1px 1px 7px $blue;
+//   border-color: $blue;
 //   padding-bottom: 4px;
 
 //   &:hover {
