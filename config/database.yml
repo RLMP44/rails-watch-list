@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: the-great-db_development
+  database: the_great_db_development
 
 test:
   <<: *default
