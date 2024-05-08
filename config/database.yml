@@ -10,3 +10,9 @@ development:
 test:
   <<: *default
   database: rails-watch-list_test
+
+production:
+  <<: *default
+  database: the_great_db_production
+  username: the_great_db
+  password: <%=  ENV['THE_GREAT_DB_PASSWORD']%>
